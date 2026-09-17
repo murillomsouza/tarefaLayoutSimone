@@ -1,26 +1,51 @@
 package com.example.tarefalayoutsimone;
 
 import android.os.Bundle;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.button.MaterialButton;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 public class MainActivity extends AppCompatActivity {
-    private MaterialButton btnLogin;
+
+    RecyclerView recyclerView;
+
+    int[] movies = {
+
+            R.drawable.morango_2,
+
+            R.drawable.morango_choco,
+
+            R.drawable.morango_preto
+
+    };
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-        inicializarComponentes();
-        configurarEventos();
-    }
-    private void inicializarComponentes() {
-        btnLogin = findViewById(R.id.btnLogin);
-    }
-    private void configurarEventos() {
-        btnLogin.setOnClickListener(v ->
-                Toast.makeText(this,
-                        "Login realizado com sucesso!",
-                        Toast.LENGTH_SHORT).show()
+
+        recyclerView = findViewById(R.id.recyclerMovies);
+
+        recyclerView.setLayoutManager(
+
+                new LinearLayoutManager(this,
+
+                        LinearLayoutManager.HORIZONTAL,
+
+                        false)
+
         );
+
+        MorangoAdapter adapter = new MorangoAdapter(this, morango);
+
+        recyclerView.setAdapter(adapter);
+
     }
+
 }
