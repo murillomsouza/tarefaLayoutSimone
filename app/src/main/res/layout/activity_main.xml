@@ -70,6 +70,16 @@
 
                 android:text="@string/button_login"/>
 
+        <ImageView
+
+            android:layout_width="100dp"
+
+            android:layout_height="100dp"
+
+            android:src="@drawable/Morango"
+
+            android:contentDescription="@string/app_name"/>
+
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
